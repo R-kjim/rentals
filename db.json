@@ -1,11 +1,36 @@
 {
-  "houseNumber": [
+  "landlords": [
     {
-      "id": "A3",
-      "name": "Julius Kimamo",
-      "phoneNumber": "8907",
-      "idNumber": "20168"
+      "id": "6709",
+      "name": "Greg Okumu",
+      "apartments": [
+        {
+          "name": "Leisure Apartments",
+          "units": "20"
+        }
+      ]
     }
   ],
-  "payments": []
+  "payments": [
+    {
+      "amount": 2000,
+      "date": 2021,
+      "tenant": "Omondi",
+      "id": "adb5"
+    },
+    {
+      "amount": 5000,
+      "date": "Feb-2024",
+      "tenant": "Jasmine",
+      "id": "6065"
+    }
+  ],
+  "credentials": [
+    {
+      "id": "c18d",
+      "name": "Greg Okumu",
+      "username": "6709",
+      "password": "Gokumu"
+    }
+  ]
 }
