@@ -1,43 +1,21 @@
 {
   "landlords": [
     {
-      "id": "6392",
+      "id": "8906",
       "name": "Robert Kimani",
-      "username": "6392",
-      "password": "Rkjim",
-      "apartments": [],
-      "tenants": []
-    }
-  ],
-  "payments": [
-    {
-      "amount": 2000,
-      "date": 2021,
-      "tenant": "Omondi",
-      "id": "adb5"
-    },
-    {
-      "amount": 5000,
-      "date": "Feb-2024",
-      "tenant": "Jasmine",
-      "id": "6065"
-    },
-    {
-      "amount": 9000,
-      "date": "Jan-2024",
-      "tenant": "Kazungu",
-      "id": "6067"
-    }
-  ],
-  "credentials": [],
-  "tenants": [
-    {
-      "id": "a5",
-      "tenantName": "joan kapro",
-      "phoneNumber": "",
-      "idNumber": "",
-      "password": "Gokumu",
-      "name": "Joan Kapro"
+      "username": "8906",
+      "password": "5432",
+      "apartments": [
+        {
+          "name": "Leisure Apartments",
+          "type": "Apartments",
+          "address": "kajiado",
+          "units": "14",
+          "occupied": 0
+        }
+      ],
+      "tenants": [],
+      "payments": []
     }
   ]
 }

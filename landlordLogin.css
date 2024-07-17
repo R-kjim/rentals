@@ -11,7 +11,7 @@
     padding: 5%;
 }
 body{
-    display: inline-flex;
+    /* display: inline-flex; */
     width: 70%;
     background-image: url("./images/property.jpg");
     background-repeat: no-repeat;
@@ -19,4 +19,22 @@ body{
 }
 a{
     color: black;
+}
+li{
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 55px;
+}
+section div{
+    display: inline-block;
+    border-style: solid;
+    margin-right: 4px;
+    border-width: 1px;
+    padding: 0px 5px;
+    
+}
+.subdiv{
+    background-image: url("./images/mb-fig1-viewbillpage\ 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }

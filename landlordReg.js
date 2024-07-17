@@ -9,6 +9,7 @@ function submitFn(e){
         password:e.target.myPassword.value,
         apartments:[],
         tenants:[],
+        payments:[],
         id:e.target.lordpNumber.value
 }
     fetch("http://localhost:3000/landlords",{
