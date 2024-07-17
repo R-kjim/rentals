@@ -1,14 +1,12 @@
 {
   "landlords": [
     {
-      "id": "6709",
-      "name": "Greg Okumu",
-      "apartments": [
-        {
-          "name": "Leisure Apartments",
-          "units": "20"
-        }
-      ]
+      "id": "6392",
+      "name": "Robert Kimani",
+      "username": "6392",
+      "password": "Rkjim",
+      "apartments": [],
+      "tenants": []
     }
   ],
   "payments": [
@@ -23,14 +21,23 @@
       "date": "Feb-2024",
       "tenant": "Jasmine",
       "id": "6065"
+    },
+    {
+      "amount": 9000,
+      "date": "Jan-2024",
+      "tenant": "Kazungu",
+      "id": "6067"
     }
   ],
-  "credentials": [
+  "credentials": [],
+  "tenants": [
     {
-      "id": "c18d",
-      "name": "Greg Okumu",
-      "username": "6709",
-      "password": "Gokumu"
+      "id": "a5",
+      "tenantName": "joan kapro",
+      "phoneNumber": "",
+      "idNumber": "",
+      "password": "Gokumu",
+      "name": "Joan Kapro"
     }
   ]
 }

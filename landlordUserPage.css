@@ -4,15 +4,38 @@ ul#myHeader li{
 }
 li{
     margin-left: 8%;
-    
+  
+
 }
 li:hover{
     background-color: rgba(0, 51, 255, 0.622);
 }
-header{
+#myHeader{
     display: inline;
+    padding: 15px;
+   margin-bottom: 10px;
+   border-bottom: 15px;
 }
-
-header p{
-    display: inline-flex;
+header{
+    background-image: linear-gradient(to right, blue,purple);
+    height: 40px;
+    padding-top: 20px;
+}
+.bodyDiv{
+    margin-top: 1.5px;
+}
+table{
+    table-layout:fixed;
+    width: 50%;
+    border-collapse: collapse;
+    background-color: rgba(207, 200, 200, 0.223);
+    border: 1.5px solid purple;
+}
+thead th{
+    width: 30%;
+    
+}
+td{
+    text-align: center;
+    
 }
