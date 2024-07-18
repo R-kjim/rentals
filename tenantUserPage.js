@@ -33,10 +33,22 @@ tenantDiv.innerHTML=`
 `
 //add an event to the make payment button so it updates accordingly
 let payBtn=tenantDiv.querySelector("button").addEventListener("click",()=>{
-    let payDiv=document.createElement("div").innerHTML=`
-    <p><form>Enter Amount:<br><input type='number'><input type='submit'></form></p>
+    let payDiv=document.createElement("div")
+    payDiv.innerHTML=`
+    <p><form>Enter Amount:<br><input type='number'id='amount'><input type='submit'></form></p>
     `
     tenantDiv.append(payDiv)
+    let payForm=(tenantDiv.querySelector("form"))
+
+    payForm.addEventListener("submit",(e)=>{
+        e.preventDefault()
+        console.log(e.target.amount.value)
+        // let updatedObj=[...item]
+        // updatedObj.payments.push(e.target.amount.value)
+        // console.log(updatedObj.payments)
+        item.payments.push(e.target.amount.value)
+    console.log(item.payments)
+    })
 })
 
 
