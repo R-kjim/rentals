@@ -4,60 +4,126 @@ fetch(`http://localhost:3000/landlords/${mynewId}`)
     .then(data => usedataFn(data))
 function usedataFn(item) {
         let subDiv = document.querySelector(".subDiv")
+        let replacableDiv=document.createElement("div")
+        replacableDiv.setAttribute("class","changeable")
         let userDiv = document.createElement("div")
         if(item.apartments.length!==0){
         userDiv.innerHTML = `<ul id="myHeader">
-                        <li id="myProperties">Summary</li>
-                        <li id="myTenants">Tenants</li>
+                        <li id="myTenants">Add a tenant</li>
                         <li id="adds">Add an apartment</li>
-                        <li id="myDashboard">Add a tenant</li>
-                        <li>Post an Invoice</li>
+                        <li id='invoice'>Post an Invoice</li>
                     </ul>`
 
         
         subDiv.append(userDiv)
-        let dashboard = userDiv.querySelector("#myDashboard")
-        let properties = userDiv.querySelector("#myProperties")
         let tenants = userDiv.querySelector("#myTenants")
-        let transaction = userDiv.querySelector("#myTransactions")
         let addApartment = userDiv.querySelector("#adds")
+        let postInvoice=userDiv.querySelector("#invoice")
+
         //summary section which is the landlords default page
         let topDiv = document.createElement("section")
-    //     function sumaapartments(){
-    //         let sumaapartments1=0
-    //     for(let j=0;j<item.apartments.length;j++){
-    //       let y=parseInt(item.apartments[j].units)
-    //       sumaapartments1+=y
-    //     } return sumaapartments1
-    // }
-    // function incomeSum(){
-    //     let incomeTotal=0
-    //     for(let j=0;j<item.tenants.length;j++){
-    //         let x=(item.tenants[j][0].monthlyBills[0].rent)
-    //         incomeTotal+=x
-    //     }return incomeTotal
-    // }
+        //functions that evaluate values for use in the summary section
+            let myApartments=item.apartments.length//numberof apartments
+
+            //calculate the totalnumber of units for each landlord
+            let myUnits=0
+            function totalUnits(){
+                for(let j=0;j<item.apartments.length;j++){
+                    let subUnits=parseInt(item.apartments[j].units)
+                    myUnits+=subUnits
+                }
+                return myUnits
+            }
+
+            //function that calculates the expected income based on number of units rented
+            let incomeExp=0
+            function expectedFn(){
+                for(let j=0;j<item.tenants.length;j++){
+                    let individualIncome=parseInt(item.tenants[j].monthlyBills[0].rent)
+                    incomeExp+=individualIncome
+                }
+                return incomeExp
+            }
       
 
-        // topDiv.innerHTML = `
-        //     <div class='myView'><p>Total Properties<strong><br>${item.apartments.length}</strong></p></div>
-        //     <div class='myView'><p>Total Units<br>${sumaapartments()}</p></div>
-        //     <div class='myView'><p>Estimated Monthly Income<br>KSH ${incomeSum()} </p></div>
-        //     `
-        // subDiv.append(topDiv)
+        topDiv.innerHTML = `
+            <div class='myView'><p>Total Properties<strong><br>${myApartments}</strong></p></div>
+            <div class='myView'><p>Total Units<br>${totalUnits()}</p></div>
+            <div class='myView'><p>Estimated Monthly Income<br>KSH ${expectedFn()} </p></div>
+            `
+        subDiv.append(topDiv)
      
-        let overviewDiv = document.createElement("section")
+
+        //display tenants on the dashboard
+        let tenantDisplay=document.createElement("div")
+        // tenantDisplay.innerHTML="<h5>My Tenants</h5>"
+        tenantDisplay.setAttribute("class","myLists")
+        function tenantsFn() {
+            if(item.tenants.length>=1){
+                let tenantSection=document.createElement("section")
+            for(j=0;j<item.apartments.length;j++){
+                tenantSection.innerHTML=`
+                <h4>My Tenants</h4>
+                `
+                let apartmentDiv=document.createElement("div")
+                for(let k=0;k<item.tenants.length;k++){
+                    if(item.tenants[k].apartment===item.apartments[j].name){
+                        apartmentDiv.innerHTML=`
+                        <h5>${item.apartments[j].name.toUpperCase()}</h5>
+                        <p>Name: ${item.tenants[k].tenantName}</p>
+                        <p>PhoneNumber:  ${item.tenants[k].phoneNumber}</p>
+                        <p>House Number: ${item.tenants[k].id}</p>
+                        
+                        `
+                        //add an eventlistenerto the buttons to enableediting
+                        // let extraBtns=apartmentDiv.querySelector(".edit")
+                        // extraBtns.addEventListener("click",editFn)
+                        // function editFn(){
+                        //     extraBtns.disabled=true
+                        //     let editNew=document.createElement("div")
+                        //     editNew.innerHTML=`
+                        //         <form>
+                        //         <h3>Add a Tenant</h3>
+                        //         <p>Enter first name:<br><input type='text' id='tName' required</p>
+                        //         <p>Enter second name:<br><input type='text' id='lName' required></p>
+                        //         <p>Enter phone number:<br><input type='number' id=tNumber required></p>
+                        //         <p>Enter tenant's ID Number:<br><input type='number' id='tId' required></p>
+                        //         <p>Housing Apartment: <br><select required id='apartment'></select></p>
+                        //         <p>House assigned:<br><input type='text' id='id1' required></p>
+                        //         <p>Create a password: <br><input type='password' id=tPass required></p>
+                        //         <input type='submit' id='submit'>
+                        //         </form>
+                        //     `
+                        // }
 
 
 
 
+
+                        
+                        tenantDisplay.append(apartmentDiv)
+                        tenantSection.append(tenantDisplay)
+                    }
+                }
+            }
+            subDiv.append(tenantSection)
+         
+            }else{
+                tDiv.innerHTML="<h3>List of Tenants</h3><p>No data to display</p>"
+                subDiv.append(tDiv)
+            }}
+            tenantsFn()
 
 
         //add event listeners to each of the landing page elements
         //add a tenant data captured appropriately
-        // dashboard.addEventListener("click", addTenantFn)
+        tenants.addEventListener("click", addTenantFn)
+        
         let div1=document.createElement("div")
+        div1.setAttribute("class","changeable")
         function addTenantFn() {
+            subDiv.appendChild(replacableDiv)
+
             div1.innerHTML = `
             <form>
             <h3>Add a Tenant</h3>
@@ -79,11 +145,12 @@ function usedataFn(item) {
                 myChoices.textContent=x
                 div1.querySelector("select").append(myChoices)
             } 
+            replacableDiv.replaceChildren(div1)
+
             }
             loopArray()
-            subDiv.append(div1)
-
-            //add an eventlistener to theformsothe details captured can bestoredin the databasefor use elsewhere on the page
+            document.querySelector(".changeable").replaceWith(Div1)
+            //add an eventlistener to the form so the details captured can be stored in the databasefor use elsewhere on the page
             div1.querySelector("form").addEventListener("submit", (e) => {
                 e.preventDefault()
 
@@ -124,76 +191,23 @@ function usedataFn(item) {
                     .then(tObj => console.log(tObj))
             })
         }
-        addTenantFn()
+        // addTenantFn()
 
 
-        //display tenants on the dashboard
-        // tenants.addEventListener("click", tenantsFn)
-        function tenantsFn() {
-            let tDiv = document.createElement('div')
-            if(item.tenants.length>=1){
-            for (let j = 0; j < item.tenants.length; j++) {
-                
-                tDiv.innerHTML = `
-                <h3>List of all tenants</h3>
-                    <p>Tenant Name: ${item.tenants[j]['tenantName']}</p>
-                    <p>Phone Number: ${item.tenants[j].phoneNumber}</p>
-                    <p>ID Number: ${item.tenants[j].idNumber}</p>
-                    <p><button id='edit'>Edit</button></p>
-                    `
-                subDiv.append(tDiv)
-                console.log(subDiv)
-
-                let mybtns = tDiv.querySelector("#edit")
-
-                mybtns.addEventListener("click", () => {
-                    let editDiv = document.createElement("div")
-                    editDiv.innerHTML = `<form>
-                    <p>Edit first name:<input type='text' id='tName' required></p>
-                        <p>Edit second name:<input type='text' id='lName' required></p>
-                        <p>Edit phone number:<input type='number' id=tNumber required></p>
-                        <p>Edit tenant's ID Number:<input type='number' id='tId' required></p>
-                        <p>Edit House assigned:<input type='text' id='id1' required></p>
-                        <input type='submit'>
-                        </form>
-                        `
-                    tDiv.append(editDiv)
-
-                    let mysubmit = editDiv.querySelector('form')
-                    mysubmit.addEventListener("submit", (e) => {
-                        e.preventDefault()
-                        let updateObj = {
-                            id: e.target.id1.value,
-                            tenantName: `${e.target.tName.value} ${e.target.lName.value}`,
-                            phoneNumber: e.target.tNumber.value,
-                            idNumber: e.target.tId.value
-                        }
-                        fetch(`http://localhost:3000/tenants/${mynewId}`, {
-                            method: "PATCH",
-                            body: JSON.stringify(updateObj),
-                            headers: {
-                                'Content-Type': "application/json"
-                            }
-                        })
-                            .then(res => res.json())
-                            .then(updateObj => console.log(updateObj))
-                    })
-
-                })
-            }}else{
-                tDiv.innerHTML="<h3>List of Tenants</h3><p>No data to display</p>"
-                subDiv.append(tDiv)
-            }
-        }
-        tenantsFn()
+           
+        // }}
 
         //add an apartment function
+        //add an event listener to the add an apartment section
+        addApartment.addEventListener("click",apartmentFn)
         function apartmentFn() {
             let myform = document.createElement("form")
+            myform.setAttribute("class","changeable")
             myform.innerHTML = "<h3>Add an apartment</h3><p>Enter your username:<br><input type='text' id='user' required></p><p>Building Name:<br><input type='text' id='name' required></p><p>Building Type:<br><input type='text' id='bType' required></p><p>Number of units:<br><input type='number' id='anum' required></p><p>Location Address:<br><input type='text' id='address'></p><p><input type='submit' id='submit'></p>"
-            subDiv.append(myform)
+            document.querySelector(".changeable").replaceWith(myform)
             myform.addEventListener("submit", (e) => {
                 e.preventDefault()
+                location.reload()
                 let apartmentName = e.target.name.value
                 let apartmentUnits = e.target.anum.value
                 let myUser = e.target.user.value
@@ -223,10 +237,14 @@ function usedataFn(item) {
 
             })
         }
-        apartmentFn()
+        // apartmentFn()
 
         //post an invoice segment
+        //add an eventlistener to post an invoicefor the tenants
+        postInvoice.addEventListener("click",postInvoiceFn)
+        function postInvoiceFn(){
         let invoiceDiv=document.createElement("div")
+        invoiceDiv.setAttribute("class","changeable")
         invoiceDiv.innerHTML=`
         <h3>Post an Invoice to all Tenants</h3>
         <form>
@@ -261,8 +279,8 @@ function usedataFn(item) {
             .then(patchObj=>console.log(patchObj))
         }
         })
-        subDiv.append(invoiceDiv)
-
+        document.querySelector(".changeable").replaceWith(invoiceDiv)
+        }
         
     }else{
             userDiv.innerHTML=`Add an apartment first so you can view your data`
