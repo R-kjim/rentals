@@ -1,0 +1,28 @@
+.myView{
+    display: inline-block;
+    margin-right: 15px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 3.5px;
+}
+li{
+    display: inline-flex;
+    margin-inline: 35px;
+    font-size: large;
+}
+body{
+    background-image: url("./images/mb-fig1-viewbillpage\ 1.png");
+    color: azure;
+}
+form p input{
+    margin-top: 5px;
+    color: black;
+}
+#submit{
+    background-color: rgb(3, 146, 248);
+    width: 80px;
+    color: white;
+}
+h3{
+    color: rgb(25, 220, 194);
+}

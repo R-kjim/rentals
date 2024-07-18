@@ -1,0 +1,15 @@
+body{
+    background-image: url("./images/mb-fig1-viewbillpage\ 1.png");
+    color: whitesmoke;
+}
+button{
+    color: black;
+    background-color: blue;
+}
+#billLeft{
+    margin-right: 170px;
+}
+.amountDue{
+    color: red;
+    margin-left: 20px;
+}

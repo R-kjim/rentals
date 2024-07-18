@@ -4,17 +4,97 @@
       "id": "8906",
       "name": "Robert Kimani",
       "username": "8906",
-      "password": "5432",
+      "password": "C123",
       "apartments": [
         {
           "name": "Leisure Apartments",
           "type": "Apartments",
           "address": "kajiado",
-          "units": "14",
+          "units": "15",
+          "occupied": 0
+        },
+        {
+          "name": "Kijani Plains",
+          "type": "villas",
+          "address": "westlands",
+          "units": "5",
           "occupied": 0
         }
       ],
-      "tenants": [],
+      "tenants": [
+        {
+          "tenantName": "Charlie delta",
+          "phoneNumber": "7654",
+          "id": "a2",
+          "idNumber": "8976",
+          "password": "C123",
+          "monthlyBills": [
+            {
+              "rent": 10000,
+              "garbage": 400
+            }
+          ],
+          "payments": {
+            "invoice": [],
+            "cashIn": [],
+            "balances": []
+          }
+        },
+        {
+          "tenantName": "Joan Kapro",
+          "phoneNumber": "4532",
+          "id": "a3",
+          "idNumber": "6578",
+          "password": "J123",
+          "monthlyBills": [
+            {
+              "rent": 10000,
+              "garbage": 400
+            }
+          ],
+          "payments": {
+            "invoice": [],
+            "cashIn": [],
+            "balances": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "87456",
+      "name": "Greg Kamata",
+      "username": "87456",
+      "password": "G123",
+      "apartments": [
+        {
+          "name": "helicopter",
+          "type": "Apartments",
+          "address": "kitengela",
+          "units": "76",
+          "occupied": 0
+        }
+      ],
+      "tenants": [
+        {
+          "tenantName": "Jazz Kapungala",
+          "phoneNumber": "20784",
+          "id": "a3",
+          "idNumber": "6798",
+          "password": "J123",
+          "apartment": "helicopter",
+          "monthlyBills": [
+            {
+              "rent": 10000,
+              "garbage": 400
+            }
+          ],
+          "payments": {
+            "invoice": [],
+            "cashIn": [],
+            "balances": []
+          }
+        }
+      ],
       "payments": []
     }
   ]
