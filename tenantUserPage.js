@@ -2,7 +2,7 @@ let myIndex=localStorage.getItem("loginTenant")
 let myLandlord=localStorage.getItem("myLandlord")
 console.log(myLandlord)
 console.log(myIndex)
-fetch(`http://localhost:3000/landlords/${myLandlord}`)
+fetch(`https://database-orcin.vercel.app/landlords/${myLandlord}`)
 .then(res=>res.json())
 .then(data=>usemydataFn(data))
 function usemydataFn(item){
@@ -43,11 +43,10 @@ let payBtn=tenantDiv.querySelector("button").addEventListener("click",()=>{
     payForm.addEventListener("submit",(e)=>{
         e.preventDefault()
         console.log(e.target.amount.value)
-        // let updatedObj=[...item]
-        // updatedObj.payments.push(e.target.amount.value)
-        // console.log(updatedObj.payments)
-        item.payments.push(e.target.amount.value)
-    console.log(item.payments)
+        let updatedObj=item
+        updatedObj.payments.push(e.target.amount.value)
+        updatedObj.tenants[0][myIndex].payments.cashIn.push(e.target.amount.value)
+
     })
 })
 
