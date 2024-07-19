@@ -1,19 +1,43 @@
 {
   "landlord": [
     {
-      "id": "1703",
-      "apartment": "Kijani Ridges",
-      "units": "10",
-      "location": "Thika Greens",
-      "imageUrl": ""
-    },
-    {
-      "id": "8522",
+      "id": "a267",
+      "type": "apartment",
       "apartment": {
         "names": "Kijani Ridges",
-        "units": "10",
+        "units": "20",
         "location": "Thika Greens",
         "imageUrl": ""
+      }
+    },
+    {
+      "id": "e0ab",
+      "type": "apartment",
+      "apartment": {
+        "names": "Country Villas",
+        "units": "20",
+        "location": "Muthaiga",
+        "imageUrl": ""
+      }
+    },
+    {
+      "id": "36c7",
+      "type": "tenant",
+      "tenant": {
+        "name": "Charlie",
+        "phoneNumber": "8907",
+        "apartment": "Country Villas",
+        "rent": "10000"
+      }
+    },
+    {
+      "id": "2e23",
+      "type": "tenant",
+      "tenant": {
+        "name": "Joan",
+        "phoneNumber": "4532",
+        "apartment": "Kijani Ridges",
+        "rent": "15000"
       }
     }
   ]

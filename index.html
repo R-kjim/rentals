@@ -51,18 +51,26 @@
                 <p>Add a tenant:</p>
                 <p>Tenant Name:<br><input type="text" id="tName" required></p>
                 <p>PhoneNumber: <br><input type="number" id="tPhone"></p>
+                <p>Apartment: <br><select id='apart' required></select></p>
                 <p>House Assigned:<br><input type="text" id="hNum"></p>
+                <p>Rent Charges:<br><input type="number" id="rentCharge"></p>
                 <p><input type="submit"></p>
             </form>
         </div>
         <div id="myStats">
-            <section>
+            <section id="apartmentSection">
                 <label>Total Apartments:<span id="aTotal"></span></label>
                 <label>Total Units:<span id="tUnits"></span></label>
                 <label>MonthlyEstimated Income:<span id="tTenants"></span></label>
             </section>
             <section id="tenantsSec">
-
+                <div id="myApartments">
+                    <h5>My Apartments</h5>
+                   
+                </div>
+                <div id="myTenants">
+                    <h5>View my tenants</h5>
+                </div>
             </section>
         </div>
     </div>

@@ -24,3 +24,14 @@ margin: 15px;
     display:inline-block;
     margin:15px;
 }
+div #services{
+    /* background-image: url("./images/TENANTS\ PAGE\ .png"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#tenantsSec{
+    display: inline-flex;
+}
+#myApartments{
+    margin-right: 90px;
+}
