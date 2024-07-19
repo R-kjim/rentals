@@ -21,23 +21,15 @@
       }
     },
     {
-      "id": "36c7",
+      "id": "b7eb",
       "type": "tenant",
       "tenant": {
         "name": "Charlie",
-        "phoneNumber": "8907",
-        "apartment": "Country Villas",
-        "rent": "10000"
-      }
-    },
-    {
-      "id": "2e23",
-      "type": "tenant",
-      "tenant": {
-        "name": "Joan",
-        "phoneNumber": "4532",
+        "phoneNumber": "45987",
         "apartment": "Kijani Ridges",
-        "rent": "15000"
+        "houseNumber": "A6",
+        "rent": "17000",
+        "balances": 8300
       }
     }
   ]

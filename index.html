@@ -15,6 +15,7 @@
             <li>CONTACT US</li>
         </ul>
     </header>
+    <section id="designMe">
     <div id="first">
         <p>Kickstart easy and efficient property management for your real estate business.</p>
     </div>
@@ -34,10 +35,26 @@
             <h3>CONVENIENCE</h3>
             <p>We conveniently enable you create new profiles for your new tenants without carrying notes every now and then.</p>
         </section>
+    </section>
+    <section id="subsection">
         </div>
-        <div>
-            <p>Wish to register a tenant? Start out by adding an apartment and proceed to filling out the tenant details below.</p>
+        
+            <section id="apartmentSection">
+                <label>Total Apartments<br><span id="aTotal"></span></label>
+                <label>Total Units<br><span id="tUnits"></span></label>
+                <label>MonthlyEstimated Income<br><span id="tTenants"></span></label>
+            </section>
+            <section id="tenantsSec">
+                <div id="myApartments">
+                    <h5>My Apartments</h5>
+                   
+                </div>
+                <div id="myTenants">
+                    <h5>View my tenants</h5>
+                </div>
+            </section>
         </div>
+        <p>Wish to register a tenant? Start out by adding an apartment and proceed to filling out the tenant details below.</p>
         <div class="registration">
             <form id="landlord">
                 <p>Add an Apartment</p>
@@ -56,30 +73,15 @@
                 <p>Rent Charges:<br><input type="number" id="rentCharge"></p>
                 <p><input type="submit"></p>
             </form>
+           
         </div>
+        <section>
+            <button id="invoice">POST AN INVOICE</button>
+        
+        </section>
         <div id="myStats">
-            <section id="apartmentSection">
-                <label>Total Apartments:<span id="aTotal"></span></label>
-                <label>Total Units:<span id="tUnits"></span></label>
-                <label>MonthlyEstimated Income:<span id="tTenants"></span></label>
-            </section>
-            <section id="tenantsSec">
-                <div id="myApartments">
-                    <h5>My Apartments</h5>
-                   
-                </div>
-                <div id="myTenants">
-                    <h5>View my tenants</h5>
-                </div>
-            </section>
         </div>
-    </div>
-    <div>
-
-
-
-    </div>
-
+    </section>
     <script src="./index.js"></script>
 </body>
 </html>

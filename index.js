@@ -1,7 +1,6 @@
 //add eventlisteners to the forms and captureand store their data
 //apartment registration form
 let myApartment=document.querySelector("#landlord")
-console.log(myApartment)
 myApartment.addEventListener("submit",submitFn)
 function submitFn(e){
     e.preventDefault()
@@ -35,7 +34,9 @@ myTenant.addEventListener("submit",(e)=>{
             name:e.target.tName.value,
             phoneNumber:e.target.tPhone.value,
             apartment:e.target.apart.value,
-            rent:e.target.rentCharge.value
+            houseNumber:e.target.hNum.value,
+            rent:e.target.rentCharge.value,
+            balances:0
         }
     }
     //POST the data captured into the database
@@ -85,17 +86,105 @@ function useDataFn(item){
             myIncome+=parseInt(item[i].tenant.rent)
             let newlabel=document.createElement("div")
             newlabel.innerHTML=`
-            <p>Name: ${item[i].tenant.name}<br>Phone Number: ${item[i].tenant.phoneNumber}</p>
+            <p>Name: ${item[i].tenant.name}<br>Phone Number: ${item[i].tenant.phoneNumber}
+            <br><button id='edit'>EDIT</button> <button id='delete'>DELETE</button></p>
+
             `
+            let mydelete=newlabel.querySelector(" #delete")
+            console.log(mydelete)
+            let myedit=newlabel.querySelector("#edit")
             document.querySelector("#myTenants").append(newlabel)
-        
+
+            //an event listener that edits tenant details
+            myedit.addEventListener("click",editFn)
+            function editFn(){
+                let editDiv=document.createElement("div")
+                editDiv.innerHTML=`
+                 <form><p>Tenant Name:<br><input type="text" id="tName" value=${item[i].tenant.name} required></p>
+                <p>PhoneNumber: <br><input type="number" id="tPhone" value=${item[i].tenant.phoneNumber}></p>
+                <p>Apartment: <br><select id='apart' required><option>${item[i].tenant.apartment}</option></select></p>
+                <p>House Assigned:<br><input type="text" id="hNum" value=${item[i].tenant.houseNumber}></p>
+                <p>Rent Charges:<br><input type="number" id="rentCharge" value=${item[i].tenant.rent}></p>
+                <p><input type="submit"></p></form>
+                `
+                newlabel.append(editDiv)
+              
+                editDiv.querySelector("form").addEventListener("submit",(e)=>{
+                    e.preventDefault()
+                    let editObj={type:'tenant',
+                        tenant:{
+                            name:e.target.tName.value,
+                            phoneNumber:e.target.tPhone.value,
+                            apartment:e.target.apart.value,
+                            houseNumber:e.target.hNum.value,
+                            rent:e.target.rentCharge.value,
+                            balances:item[i].tenant.balances
+                        }}
+                    editDiv.remove()
+                    fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+                        method:"PATCH",
+                        body:JSON.stringify(editObj),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    })
+                    .then(res=>res.json())
+                    .then(editObj=>console.log(editObj))
+                })
+            }
+            //an event listener that deletes a tenant
+            mydelete.addEventListener("click",deleteFn)
+            function deleteFn(){
+                fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+                    method:"DELETE",
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                })
+                .then(res=>res.json())
+                .then(item=>console.log(item))
+            }
     }
     totalSpan.textContent=count
     unitsSpan.textContent=eachUnit
     document.querySelector("#tTenants").textContent=myIncome
+}
 
-    
 
-
+//add an event listener that posts an invoice for all tenants
+document.querySelector("#invoice").addEventListener("click",invoiceFn)
+function invoiceFn(){
+    let invoicediv=document.createElement("div")
+    invoicediv.innerHTML=`
+    <form>
+    <p><label>Rent:<br><input type='number' id='rFee'></label></p>
+    <p><label>Garbage: <br><input type='number' id='gFee'></label></p>
+    <p><input type='submit'></p>
+    <p><label>Total: <span id='total'></label></p>
+    </form>
+    `
+    document.querySelector(".registration").append(invoicediv)
+    invoicediv.querySelector("form").addEventListener("submit",(e)=>{
+        e.preventDefault()
+        let gfee1=parseInt(e.target.gFee.value)
+        let rfee1=parseInt(e.target.rFee.value)
+        let myTotal=gfee1+rfee1
+        invoicediv.querySelector("#total").textContent=myTotal
+        for(let i=0;i<item.length;i++){
+            if(item[i].type==="tenant"){
+                let myBalances=item[i].tenant.balances
+                let myupdateObj={...item[i]}
+                myupdateObj.tenant.balances=parseInt(myBalances)+myTotal
+        fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+            method:"PATCH",
+            body:JSON.stringify(myupdateObj),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res=>res.json())
+        .then(myupdateObj=>console.log(myupdateObj))
+        }}
+    })
 
 }}

@@ -3,7 +3,6 @@ li{
     margin-right:20px
 }
 #first{
-    /* background-image: url("./images/background.png"); */
     min-height: 200px;
 }
 #first p{
@@ -16,22 +15,42 @@ li{
     max-width: 300px;
     margin-right: 50px;
 }
-/* form{
-display: inline-flex;
-margin: 15px;
-} */
-.registration form{
-    display:inline-block;
+form{
     margin:15px;
 }
-div #services{
-    /* background-image: url("./images/TENANTS\ PAGE\ .png"); */
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#tenantsSec{
+
+#tenantsSec {
     display: inline-flex;
 }
 #myApartments{
     margin-right: 90px;
+}
+#apartmentSection{
+    display:inline-flex
+}
+label{
+    margin-right: 30px;
+}
+label span{
+    font-size: 20px;
+}
+#designMe{
+    background-image: url("./images/TENANTS\ PAGE\ 3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 10px;
+}
+#subsection{
+background-image: url("./images/TENANTS\ PAGE\ 3.png");
+ background-repeat: no-repeat;
+ background-size: cover;
+ padding-left: 10px;;
+}
+h5{
+    font-size: large;
+    margin-bottom: 1.5px;
+}
+.registration{
+    margin-top: 5px;
+    display: inline-flex;
 }
