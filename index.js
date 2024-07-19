@@ -13,7 +13,7 @@ function submitFn(e){
             location:e.target.aLocation.value,
             imageUrl:e.target.image.value
     }}
-    fetch("http://localhost:3000/landlord",{
+    fetch("https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords",{
         method:"POST",
         body:JSON.stringify(newObj),
         headers:{
@@ -40,7 +40,7 @@ myTenant.addEventListener("submit",(e)=>{
         }
     }
     //POST the data captured into the database
-    fetch("http://localhost:3000/landlord",{
+    fetch("https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords",{
         method:"POST",
         body:JSON.stringify(tenantObj),
         headers:{
@@ -58,7 +58,7 @@ let totalSpan=(document.querySelector("#aTotal"))
  let unitsSpan=document.querySelector("#tUnits")
  let tenantsDisplay=document.querySelector("#tenantsSec")
  //get thedata for use
-fetch("http://localhost:3000/landlord")
+fetch("https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords")
 .then(res=>res.json())
 .then(data=>useDataFn(data))
 
@@ -121,7 +121,7 @@ function useDataFn(item){
                             balances:item[i].tenant.balances
                         }}
                     editDiv.remove()
-                    fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+                    fetch(`https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords${item[i].id}`,{
                         method:"PATCH",
                         body:JSON.stringify(editObj),
                         headers:{
@@ -135,7 +135,7 @@ function useDataFn(item){
             //an event listener that deletes a tenant
             mydelete.addEventListener("click",deleteFn)
             function deleteFn(){
-                fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+                fetch(`https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords/${item[i].id}`,{
                     method:"DELETE",
                     headers:{
                         'Content-Type':'application/json'
@@ -175,7 +175,7 @@ function invoiceFn(){
                 let myBalances=item[i].tenant.balances
                 let myupdateObj={...item[i]}
                 myupdateObj.tenant.balances=parseInt(myBalances)+myTotal
-        fetch(`http://localhost:3000/landlord/${item[i].id}`,{
+        fetch(`https://database-n64utb32e-robert-kimanis-projects.vercel.app/landlords/${item[i].id}`,{
             method:"PATCH",
             body:JSON.stringify(myupdateObj),
             headers:{

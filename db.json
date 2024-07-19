@@ -31,6 +31,30 @@
         "rent": "17000",
         "balances": 8300
       }
+    },
+    {
+      "id": "abbd",
+      "type": "tenant",
+      "tenant": {
+        "name": "Joan",
+        "phoneNumber": "98067",
+        "apartment": "Kijani Ridges",
+        "houseNumber": "a7",
+        "rent": "10000",
+        "balances": 0
+      }
+    },
+    {
+      "id": "0108",
+      "type": "tenant",
+      "tenant": {
+        "name": "Stanley",
+        "phoneNumber": "4532",
+        "apartment": "Kijani Ridges",
+        "houseNumber": "A6",
+        "rent": "23000",
+        "balances": 0
+      }
     }
   ]
 }
