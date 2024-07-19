@@ -2,7 +2,7 @@
 document.querySelector("#lordlogin").addEventListener("submit",loginFn)
 function loginFn(e){
     e.preventDefault()
-    fetch("https://database-orcin.vercel.app/landlords")
+    fetch("http://localhost:3000/landlords")
     .then(res=>res.json())
     .then(data=>logFn(data))
     function logFn(item){

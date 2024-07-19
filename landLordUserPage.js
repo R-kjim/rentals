@@ -1,5 +1,5 @@
 let mynewId=localStorage.getItem("loginId")
-fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`)
+fetch(`http://localhost:3000/landlords/${mynewId}`)
     .then(res => res.json())
     .then(data => usedataFn(data))
 function usedataFn(item) {
@@ -180,7 +180,7 @@ function usedataFn(item) {
                 let myObj1={tenants:[...array,tObj]}//updates the array tobe patched by making acopy of the existing one and adding
                 console.log(myObj1)
 
-                fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`, {
+                fetch(`http://localhost:3000/landlords/${mynewId}`, {
                     method: 'PATCH',
                     body: JSON.stringify(myObj1),
                     headers: {
@@ -225,7 +225,7 @@ function usedataFn(item) {
                     apartments: [...array, newObj]
                 }
 
-                fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`, {
+                fetch(`http://localhost:3000/landlords/${mynewId}`, {
                     method: "PATCH",
                     body: JSON.stringify(myObj),
                     headers: {
@@ -268,7 +268,7 @@ function usedataFn(item) {
                }
             
         
-            fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`,{
+            fetch(`http://localhost:3000/landlords/${mynewId}`,{
                 method:"PATCH",
                 body:JSON.stringify(patchObj),
                 headers: {
@@ -309,7 +309,7 @@ function usedataFn(item) {
                     apartments: [...array, newObj]
                 }
 
-                fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`, {
+                fetch(`http://localhost:3000/landlords/${mynewId}`, {
                     method: "PATCH",
                     body: JSON.stringify(myObj),
                     headers: {

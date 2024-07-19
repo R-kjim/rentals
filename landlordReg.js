@@ -12,7 +12,7 @@ function submitFn(e){
         payments:[],
         id:e.target.lordpNumber.value
 }
-    fetch("https://database-orcin.vercel.app/landlords",{
+    fetch("http://localhost:3000/landlords",{
         method:"POST",
         body: JSON.stringify(loginObj),
         headers:{

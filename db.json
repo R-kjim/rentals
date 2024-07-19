@@ -64,6 +64,15 @@
         ]
       ],
       "payments": []
+    },
+    {
+      "id": "12345",
+      "name": "Joseph Irungu",
+      "username": "12345",
+      "password": "J123",
+      "apartments": [],
+      "tenants": [],
+      "payments": []
     }
   ]
 }
