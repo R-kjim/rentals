@@ -12,14 +12,14 @@ function submitFn(e){
             location:e.target.aLocation.value,
             imageUrl:e.target.image.value
     }}
-    fetch("http://localhost:3000/landlord",{
-        method:"POST",
-        body:JSON.stringify(newObj),
-        headers:{
-            'Content-Type':'application/json'
-        }
-    })
-    .then(res=>res.json())
-    .then(newObj=>console.log(newObj))
+    // fetch("http://localhost:3000/landlord",{
+    //     method:"POST",
+    //     body:JSON.stringify(newObj),
+    //     headers:{
+    //         'Content-Type':'application/json'
+    //     }
+    // })
+    // .then(res=>res.json())
+    // .then(newObj=>console.log(newObj))
 }
     
