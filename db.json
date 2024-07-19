@@ -70,7 +70,15 @@
       "name": "Joseph Irungu",
       "username": "12345",
       "password": "J123",
-      "apartments": [],
+      "apartments": [
+        {
+          "name": "Haven",
+          "type": "Apartments",
+          "address": "thika",
+          "units": "23",
+          "occupied": 0
+        }
+      ],
       "tenants": [],
       "payments": []
     }

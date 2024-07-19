@@ -26,9 +26,9 @@ form p input{
 h3{
     color: rgb(25, 220, 194);
 }
-.myLists{
+/* .myLists{
     display: inline-flex;
-}
+} */
 .myLists div{
     width: 400px;
 }

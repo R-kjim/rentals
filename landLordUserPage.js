@@ -1,5 +1,5 @@
 let mynewId=localStorage.getItem("loginId")
-fetch(`http://localhost:3000/landlords/${mynewId}`)
+fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`)
     .then(res => res.json())
     .then(data => usedataFn(data))
 function usedataFn(item) {
@@ -39,7 +39,7 @@ function usedataFn(item) {
             let incomeExp=0
             function expectedFn(){
                 for(let j=0;j<item.tenants.length;j++){
-                    let individualIncome=parseInt(item.tenants[j].monthlyBills[0].rent)
+                    let individualIncome=parseInt(item.tenants[0][j].monthlyBills[0].rent)
                     incomeExp+=individualIncome
                 }
                 return incomeExp
@@ -53,65 +53,22 @@ function usedataFn(item) {
             `
         subDiv.append(topDiv)
      
-
         //display tenants on the dashboard
         let tenantDisplay=document.createElement("div")
-        // tenantDisplay.innerHTML="<h5>My Tenants</h5>"
+        tenantDisplay.innerHTML="<h3>My Tenants</h3>"
         tenantDisplay.setAttribute("class","myLists")
         function tenantsFn() {
-            if(item.tenants.length>=1){
-                let tenantSection=document.createElement("section")
-            for(j=0;j<item.apartments.length;j++){
-                tenantSection.innerHTML=`
-                <h4>My Tenants</h4>
-                `
-                let apartmentDiv=document.createElement("div")
-                for(let k=0;k<item.tenants.length;k++){
-                    if(item.tenants[k].apartment===item.apartments[j].name){
-                        apartmentDiv.innerHTML=`
-                        <h5>${item.apartments[j].name.toUpperCase()}</h5>
-                        <p>Name: ${item.tenants[k].tenantName}</p>
-                        <p>PhoneNumber:  ${item.tenants[k].phoneNumber}</p>
-                        <p>House Number: ${item.tenants[k].id}</p>
-                        
-                        `
-                        //add an eventlistenerto the buttons to enableediting
-                        // let extraBtns=apartmentDiv.querySelector(".edit")
-                        // extraBtns.addEventListener("click",editFn)
-                        // function editFn(){
-                        //     extraBtns.disabled=true
-                        //     let editNew=document.createElement("div")
-                        //     editNew.innerHTML=`
-                        //         <form>
-                        //         <h3>Add a Tenant</h3>
-                        //         <p>Enter first name:<br><input type='text' id='tName' required</p>
-                        //         <p>Enter second name:<br><input type='text' id='lName' required></p>
-                        //         <p>Enter phone number:<br><input type='number' id=tNumber required></p>
-                        //         <p>Enter tenant's ID Number:<br><input type='number' id='tId' required></p>
-                        //         <p>Housing Apartment: <br><select required id='apartment'></select></p>
-                        //         <p>House assigned:<br><input type='text' id='id1' required></p>
-                        //         <p>Create a password: <br><input type='password' id=tPass required></p>
-                        //         <input type='submit' id='submit'>
-                        //         </form>
-                        //     `
-                        // }
-
-
-
-
-
-                        
-                        tenantDisplay.append(apartmentDiv)
-                        tenantSection.append(tenantDisplay)
-                    }
-                }
+           for(i=0;i<item.tenants[0].length;i++){
+            let mydiv=document.createElement("div")
+            mydiv.innerHTML=`
+            <p>Name: ${item.tenants[0][i].tenantName}</p>
+            <p>Apartment: ${item.tenants[0][i].phoneNumber}</p>
+            
+            `
+            tenantDisplay.append(mydiv)
+            subDiv.append(tenantDisplay)
+           }
             }
-            subDiv.append(tenantSection)
-         
-            }else{
-                tDiv.innerHTML="<h3>List of Tenants</h3><p>No data to display</p>"
-                subDiv.append(tDiv)
-            }}
             tenantsFn()
 
 
@@ -149,7 +106,7 @@ function usedataFn(item) {
 
             }
             loopArray()
-            document.querySelector(".changeable").replaceWith(Div1)
+            document.querySelector(".changeable").replaceWith(div1)
             //add an eventlistener to the form so the details captured can be stored in the databasefor use elsewhere on the page
             div1.querySelector("form").addEventListener("submit", (e) => {
                 e.preventDefault()
@@ -180,7 +137,7 @@ function usedataFn(item) {
                 let myObj1={tenants:[...array,tObj]}//updates the array tobe patched by making acopy of the existing one and adding
                 console.log(myObj1)
 
-                fetch(`http://localhost:3000/landlords/${mynewId}`, {
+                fetch(`https://database-orcin.vercel.app/landlords${mynewId}`, {
                     method: 'PATCH',
                     body: JSON.stringify(myObj1),
                     headers: {
@@ -225,7 +182,7 @@ function usedataFn(item) {
                     apartments: [...array, newObj]
                 }
 
-                fetch(`http://localhost:3000/landlords/${mynewId}`, {
+                fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`, {
                     method: "PATCH",
                     body: JSON.stringify(myObj),
                     headers: {
@@ -268,7 +225,7 @@ function usedataFn(item) {
                }
             
         
-            fetch(`http://localhost:3000/landlords/${mynewId}`,{
+            fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`,{
                 method:"PATCH",
                 body:JSON.stringify(patchObj),
                 headers: {
@@ -309,7 +266,7 @@ function usedataFn(item) {
                     apartments: [...array, newObj]
                 }
 
-                fetch(`http://localhost:3000/landlords/${mynewId}`, {
+                fetch(`https://database-orcin.vercel.app/landlords/${mynewId}`, {
                     method: "PATCH",
                     body: JSON.stringify(myObj),
                     headers: {

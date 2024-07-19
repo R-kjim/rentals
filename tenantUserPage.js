@@ -2,7 +2,7 @@ let myIndex=localStorage.getItem("loginTenant")
 let myLandlord=localStorage.getItem("myLandlord")
 console.log(myLandlord)
 console.log(myIndex)
-fetch(`http://localhost:3000/landlords/${myLandlord}`)
+fetch(`https://database-orcin.vercel.app/landlords/${myLandlord}`)
 .then(res=>res.json())
 .then(data=>usemydataFn(data))
 function usemydataFn(item){
