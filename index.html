@@ -3,27 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./landlordLogin.css">
+    <title>Landlord User Page</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <header>
+        <ul>
+            <li>ABOUT US</li>
+            <li>FEATURES</li>
+            <li>REGISTER</li>
+            <li>CONTACT US</li>
+        </ul>
+    </header>
+    <div id="first">
+        <p>Kickstart easy and efficient property management for your real estate business.</p>
+    </div>
+    <div >
+        <h4>SERVICES</h4>
+        <p>Our range of services are tailor made to suit your convenience.</p>
+        <div id="services">
+        <section>
+            <h3>CENTRALIZE</h3>
+            <p>Your tenant data stays centralized and is accessible from anywhere. You dont have to stay worried about forgetting a tenant's whereabouts  </p>
+        </section>
+        <section>
+            <h3>PLANNING</h3>
+            <p>As a landlord,we know you have a lot toattend to and intend to achieve all to the very best.We assist you by having scheduled maintenancesthat do not inconvenience you. </p>
+        </section>
+        <section>
+            <h3>CONVENIENCE</h3>
+            <p>We conveniently enable you create new profiles for your new tenants without carrying notes every now and then.</p>
+        </section>
+        </div>
+        <div>
+            <p>Wish to register a tenant? Start out by adding an apartment and proceed to filling out the tenant details below.</p>
+        </div>
+        <div class="registration">
+            <form id="landlord">
+                <p>Add an Apartment</p>
+                <p>Apartment Name: <br><input type="text" id="aName" required></p>
+                <p>No. of Units: <br><input type="number" id="aNum" required></p>
+                <p>Location Address:<br><input type="text" id="aLocation"></p>
+                <p>Apartment Photo:<br><input type="url" id="image"></p>
+                <p><input type="submit"></p>
+            </form>
+            <form id="client">
+                <p>Add a tenant:</p>
+                <p>Tenant Name:<br><input type="text" id="tName" required></p>
+                <p>PhoneNumber: <br><input type="number" id="tPhone"></p>
+                <p>House Assigned:<br><input type="text" id="hNum"></p>
+                <p><input type="submit"></p>
+            </form>
+        </div>
+        <div id="myStats">
+            <section>
+                <label>Total Apartments:<span id="aTotal"></span></label>
+                <label>Total Units:<span id="tUnits"></span></label>
+                <label>MonthlyEstimated Income:<span id="tTenants"></span></label>
+            </section>
+            <section id="tenantsSec">
 
-    <div class="loginDiv">
-    <p>Sign in to keep managing your properties.</p>
-    <form id="lordlogin">
-        <p>Username:<br><input type="text" id="Username" required></p>
-        <p>Password: <br><input type="password" id="password" required></p>
-        <p><a href="./passwordReset.html" id="reset">Forgot Password?</a></p>
-        <input type="submit" value="Login">
-    </form>
-    <div class="landlordUserPage">
+            </section>
+        </div>
+    </div>
+    <div>
+
+
 
     </div>
-    <p>Not registered yet? <a href="./index.html">Signup</a></p>
-    </div>
-    <div class="subDiv">
-        
-    </div>
-    <script src="./landlordLogin.js"></script>
+
+    <script src="./index.js"></script>
 </body>
 </html>

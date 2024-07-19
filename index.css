@@ -1,0 +1,26 @@
+li{
+    display: inline-block;
+    margin-right:20px
+}
+#first{
+    /* background-image: url("./images/background.png"); */
+    min-height: 200px;
+}
+#first p{
+    max-width: 200px;
+    font-size: 28px;
+    margin-left: 20%;
+}
+#services section{
+    display: inline-block;
+    max-width: 300px;
+    margin-right: 50px;
+}
+/* form{
+display: inline-flex;
+margin: 15px;
+} */
+.registration form{
+    display:inline-block;
+    margin:15px;
+}

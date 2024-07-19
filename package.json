@@ -1,14 +1,15 @@
 {
   "name": "rentals",
   "version": "1.0.0",
-  "description": "stores data about tenants ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "kjim",
+  "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
+    "g": "^2.0.1",
     "json-server": "^1.0.0-beta.1"
   }
 }

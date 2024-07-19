@@ -1,86 +1,20 @@
 {
-  "landlords": [
+  "landlord": [
     {
-      "id": "70986",
-      "name": "Robert Kimani",
-      "username": "70986",
-      "password": "R123",
-      "apartments": [
-        {
-          "name": "Leisure Apartments",
-          "type": "Apartments",
-          "address": "Kitengela",
-          "units": "20",
-          "occupied": 0
-        },
-        {
-          "name": "Kijani Plains",
-          "type": "Villas",
-          "address": "Thika",
-          "units": "6",
-          "occupied": 0
-        }
-      ],
-      "tenants": [
-        [
-          {
-            "tenantName": "Charlie Makubwa",
-            "phoneNumber": "65098",
-            "id": "a2",
-            "idNumber": "1234",
-            "password": "C123",
-            "apartment": "Leisure Apartments",
-            "monthlyBills": [
-              {
-                "rent": 10000,
-                "garbage": 400
-              }
-            ],
-            "payments": {
-              "invoice": [],
-              "cashIn": [],
-              "balances": "10500"
-            }
-          },
-          {
-            "tenantName": "Chris Madafu",
-            "phoneNumber": "76543",
-            "id": "a5",
-            "idNumber": "6789",
-            "password": "M123",
-            "apartment": "Kijani Plains",
-            "monthlyBills": [
-              {
-                "rent": 10000,
-                "garbage": 400
-              }
-            ],
-            "payments": {
-              "invoice": [],
-              "cashIn": [],
-              "balances": "10500"
-            }
-          }
-        ]
-      ],
-      "payments": []
+      "id": "1703",
+      "apartment": "Kijani Ridges",
+      "units": "10",
+      "location": "Thika Greens",
+      "imageUrl": ""
     },
     {
-      "id": "12345",
-      "name": "Joseph Irungu",
-      "username": "12345",
-      "password": "J123",
-      "apartments": [
-        {
-          "name": "Haven",
-          "type": "Apartments",
-          "address": "thika",
-          "units": "23",
-          "occupied": 0
-        }
-      ],
-      "tenants": [],
-      "payments": []
+      "id": "8522",
+      "apartment": {
+        "names": "Kijani Ridges",
+        "units": "10",
+        "location": "Thika Greens",
+        "imageUrl": ""
+      }
     }
   ]
 }
