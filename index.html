@@ -9,72 +9,74 @@
 <body>
     <header>
         <ul>
-            <li>ABOUT US</li>
-            <li>FEATURES</li>
-            <li>REGISTER</li>
-            <li>CONTACT US</li>
+            <li><a href="#first">ABOUT US</a></li>
+            <li><a href="#myServices">FEATURES</a></li>
+            <li><a href="#subsection">MY STATS</a></li>
+            <li><a href="#myRegistrations">REGISTER</a></li>
         </ul>
     </header>
     <section id="designMe">
-    <div id="first">
-        <p>Kickstart easy and efficient property management for your real estate business.</p>
-    </div>
-    <div >
-        <h4>SERVICES</h4>
-        <p>Our range of services are tailor made to suit your convenience.</p>
-        <div id="services">
-        <section>
-            <h3>CENTRALIZE</h3>
-            <p>Your tenant data stays centralized and is accessible from anywhere. You dont have to stay worried about forgetting a tenant's whereabouts  </p>
-        </section>
-        <section>
-            <h3>PLANNING</h3>
-            <p>As a landlord,we know you have a lot toattend to and intend to achieve all to the very best.We assist you by having scheduled maintenancesthat do not inconvenience you. </p>
-        </section>
-        <section>
-            <h3>CONVENIENCE</h3>
-            <p>We conveniently enable you create new profiles for your new tenants without carrying notes every now and then.</p>
-        </section>
+        <div id="first">
+            <p>Kickstart easy and efficient property management for your real estate business.</p>
+        </div>
+        <div id="myServices">
+            <h4>SERVICES</h4>
+            <p>Our range of services are tailor made to suit your convenience:</p>
+            <div id="services">
+            <section>
+                <h3>CENTRALIZE</h3>
+                <p>Your tenant data stays centralized and is accessible from anywhere. You dont have to stay worried about forgetting a tenant's whereabouts  </p>
+            </section>
+            <section>
+                <h3>PLANNING</h3>
+                <p>As a landlord,we know you have a lot toattend to and intend to achieve all to the very best.We assist you by having scheduled maintenancesthat do not inconvenience you. </p>
+            </section>
+            <section>
+                <h3>CONVENIENCE</h3>
+                <p>We conveniently enable you create new profiles for your new tenants without carrying notes every now and then.</p>
+            </section>
+            </div>
+        </div>
     </section>
-    <section id="subsection">
-        </div>
-        
-            <section id="apartmentSection">
-                <label>Total Apartments<br><span id="aTotal"></span></label>
-                <label>Total Units<br><span id="tUnits"></span></label>
-                <label>MonthlyEstimated Income<br><span id="tTenants"></span></label>
-            </section>
-            <section id="tenantsSec">
-                <div id="myApartments">
-                    <h5>My Apartments</h5>
-                   
-                </div>
-                <div id="myTenants">
-                    <h5>View my tenants</h5>
-                </div>
-            </section>
-        </div>
-        <p>Wish to register a tenant? Start out by adding an apartment and proceed to filling out the tenant details below.</p>
-        <div class="registration">
-            <form id="landlord">
-                <p>Add an Apartment</p>
-                <p>Apartment Name: <br><input type="text" id="aName" required></p>
-                <p>No. of Units: <br><input type="number" id="aNum" required></p>
-                <p>Location Address:<br><input type="text" id="aLocation"></p>
-                <p>Apartment Photo:<br><input type="url" id="image"></p>
-                <p><input type="submit"></p>
-            </form>
-            <form id="client">
-                <p>Add a tenant:</p>
-                <p>Tenant Name:<br><input type="text" id="tName" required></p>
-                <p>PhoneNumber: <br><input type="number" id="tPhone"></p>
-                <p>Apartment: <br><select id='apart' required></select></p>
-                <p>House Assigned:<br><input type="text" id="hNum"></p>
-                <p>Rent Charges:<br><input type="number" id="rentCharge"></p>
-                <p><input type="submit"></p>
-            </form>
-           
-        </div>
+    
+    <div id="subsection">
+        <h3>My Statistics</h3>
+        <section id="apartmentSection">
+            <label>Total Apartments<br><span id="aTotal"></span></label>
+            <label>Total Units<br><span id="tUnits"></span></label>
+            <label>Monthly Estimated Income<br><span id="tTenants"></span></label>
+        </section>
+        <section id="tenantsSec">
+            <div id="myApartments">
+                <h5>My Apartments</h5>
+            </div>
+            <div id="myTenants">
+                <h5>View my tenants</h5>
+            </div>
+        </section>
+    </div>
+        <section id="myRegistrations">
+            <p>Wish to register a tenant? Start out by adding an apartment and proceed to filling out the tenant details below.</p>
+            <div class="registration">
+                <form id="landlord">
+                    <p>Add an Apartment</p>
+                    <p>Apartment Name: <br><input type="text" id="aName" required></p>
+                    <p>No. of Units: <br><input type="number" id="aNum" required></p>
+                    <p>Location Address:<br><input type="text" id="aLocation"></p>
+                    <p>Apartment Photo:<br><input type="url" id="image"></p>
+                    <p><input type="submit"></p>
+                </form>
+                <form id="client">
+                    <p>Add a tenant:</p>
+                    <p>Tenant Name:<br><input type="text" id="tName" required></p>
+                    <p>PhoneNumber: <br><input type="number" id="tPhone"></p>
+                    <p>Apartment: <br><select id='apart' required></select></p>
+                    <p>House Assigned:<br><input type="text" id="hNum"></p>
+                    <p>Rent Charges:<br><input type="number" id="rentCharge"></p>
+                    <p><input type="submit"></p>
+                </form>
+            </div>
+        </section>
         <section>
             <button id="invoice">POST AN INVOICE</button>
         

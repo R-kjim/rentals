@@ -185,6 +185,7 @@ function invoiceFn(){
         .then(res=>res.json())
         .then(myupdateObj=>console.log(myupdateObj))
         }}
+        location.reload()
     })
 
 }}

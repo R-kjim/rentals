@@ -39,12 +39,7 @@ label span{
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 10px;
-}
-#subsection{
-background-image: url("./images/TENANTS\ PAGE\ 3.png");
- background-repeat: no-repeat;
- background-size: cover;
- padding-left: 10px;;
+    padding-top: 10px;
 }
 h5{
     font-size: large;
@@ -53,4 +48,19 @@ h5{
 .registration{
     margin-top: 5px;
     display: inline-flex;
+}
+html{
+    scroll-behavior: smooth;
+}
+section{
+    margin-top: 0px;
+}
+header{
+    text-align: center;
+    padding: 20px;
+    background-color: dodgerblue;
+    position: relative;
+}
+header ul li{
+    padding-left: 80px;
 }
