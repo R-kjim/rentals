@@ -86,7 +86,7 @@ function useDataFn(item){
             myIncome+=parseInt(item[i].tenant.rent)
             let newlabel=document.createElement("div")
             newlabel.innerHTML=`
-            <p>Name: ${item[i].tenant.name}<br>Phone Number: ${item[i].tenant.phoneNumber}
+            <p>Name: ${item[i].tenant.name}<br>Phone Number: ${item[i].tenant.phoneNumber}<br>Balances:${item[i].tenant.balances}
             <br><button id='edit'>EDIT</button> <button id='delete'>DELETE</button></p>
 
             `
@@ -185,6 +185,7 @@ function invoiceFn(){
         .then(res=>res.json())
         .then(myupdateObj=>console.log(myupdateObj))
         }}
+        alert("Invoice posted successfully")
         location.reload()
     })
 
