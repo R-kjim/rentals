@@ -175,6 +175,7 @@ function invoiceFn(){
                 let myBalances=item[i].tenant.balances
                 let myupdateObj={...item[i]}
                 myupdateObj.tenant.balances=parseInt(myBalances)+myTotal
+                console.log(myupdateObj.tenant.balances)
         fetch(`https://database-orcin.vercel.app/landlord/${item[i].id}`,{
             method:"PATCH",
             body:JSON.stringify(myupdateObj),
@@ -186,7 +187,43 @@ function invoiceFn(){
         .then(myupdateObj=>console.log(myupdateObj))
         }}
         alert("Invoice posted successfully")
-        location.reload()
+        invoicediv.remove()
     })
+}
+  //add an event listener to the payments button
+  document.querySelector("#payments").addEventListener("click",()=>{
+    let payDiv=document.createElement('div')
+    payDiv.innerHTML=`
+    <p>Add a payment:</p>
+    <p>Select a tenant:<select id='tenantOption'></select></p>
+    <p>Enter Amount:<input type='number' id='amountPaid'><br><button>SAVE</button></p>
+    `
+        for(let i=0;i<item.length;i++){
+        if(item[i].type==='tenant'){
+            payDiv.querySelector("#tenantOption").append(document.createElement("option").textContent=`${item[i].tenant.houseNumber}`)
+        }}
+    
+    document.querySelector(".registration").append(payDiv)
+    payDiv.querySelector("button").addEventListener("click",()=>{
+        let amountPaid=payDiv.querySelector('#amountPaid').value
+     for(let i=0;i<item.length;i++){
+        if(item[i].type==='tenant'){
+            let newPayment=item[i].tenant.balances+parseInt(amountPaid)
+            let newerObj={...item[i]}
+            let mybal=newerObj.tenant.balances
+            newerObj.tenant.balance=newPayment
+            fetch(`https://database-orcin.vercel.app/landlord/${item[i].id}`,{
+                method:"PATCH",
+                body:JSON.stringify(newerObj),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            })
+            .then(res=>res.json())
+            .then(newerObj=>console.log(newerObj))
+            payDiv.remove()
+        }
+     }
+})
 
-}}
+})}
