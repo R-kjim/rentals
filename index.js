@@ -200,14 +200,18 @@ function invoiceFn(){
     `
         for(let i=0;i<item.length;i++){
         if(item[i].type==='tenant'){
-            payDiv.querySelector("#tenantOption").append(document.createElement("option").textContent=`${item[i].tenant.houseNumber}`)
+            let y=document.createElement("option")
+            y.textContent=`${item[i].tenant.houseNumber}`
+            payDiv.querySelector("#tenantOption").append(y)
         }}
     
     document.querySelector(".registration").append(payDiv)
     payDiv.querySelector("button").addEventListener("click",()=>{
+       
+        //update the amount entered in an individual tenants profiles 
         let amountPaid=payDiv.querySelector('#amountPaid').value
      for(let i=0;i<item.length;i++){
-        if(item[i].type==='tenant'){
+        if(item[i].type==='tenant'&& item[i].tenant.houseNumber=== payDiv.querySelector("select").value){
             let newPayment=item[i].tenant.balances+parseInt(amountPaid)
             let newerObj={...item[i]}
             let mybal=newerObj.tenant.balances
