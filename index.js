@@ -1,5 +1,6 @@
 //add eventlisteners to the forms and captureand store their data
 //apartment registration form
+document.addEventListener("DOMContentLoaded",()=>{
 let myApartment=document.querySelector("#landlord")
 myApartment.addEventListener("submit",submitFn)
 function submitFn(e){
@@ -22,6 +23,7 @@ function submitFn(e){
     })
     .then(res=>res.json())
     .then(newObj=>console.log(newObj))
+    location.reload()
 }
 
 //tenant registration form
@@ -49,6 +51,7 @@ myTenant.addEventListener("submit",(e)=>{
     })
     .then(res=>res.json())
     .then(tenantObj=>console.log(tenantObj))
+    location.reload()
 })
 
 
@@ -188,6 +191,7 @@ function invoiceFn(){
         }}
         alert("Invoice posted successfully")
         invoicediv.remove()
+        location.reload()
     })
 }
   //add an event listener to the payments button
@@ -226,8 +230,9 @@ function invoiceFn(){
             .then(res=>res.json())
             .then(newerObj=>console.log(newerObj))
             payDiv.remove()
+            location.reload()
         }
      }
 })
 
-})}
+})}})
